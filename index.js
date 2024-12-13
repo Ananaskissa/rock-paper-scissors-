@@ -1,3 +1,5 @@
+//koneen valinta
+
 function getComputerChoice() {
     let options = ["rock", "paper", "scissors"]
     let value = options[Math.floor(Math.random() * options.length)];
@@ -5,22 +7,23 @@ function getComputerChoice() {
     return value
     
 }
-
+//pelaajan valinta
 
 function getHumanChoice(){
     let Choice = prompt("Choose rock, paper or scissors");
+    Choice = Choice.toLowerCase();
         return Choice
 }
 
 
-humanScore = 0
-computerScore = 0
+let humanScore = 0
+let computerScore = 0
 
 
+//kierroksen pelaaminen
 
 function playRound(humanChoice, computerChoice){
 
-    humanChoice = humanChoice.toLowerCase();
 
     if (humanChoice === computerChoice)
         { console.log("Draw"); }
@@ -34,9 +37,31 @@ function playRound(humanChoice, computerChoice){
     {   console.log(`You lose! ${computerChoice} wins ${humanChoice}`);
         computerScore ++; }
     else { console.log(`You won! ${humanChoice} wins ${computerChoice}`);
+            humanScore++;
+    };
 
-    }
+};
 
+playRound(getHumanChoice(), getComputerChoice());
+
+
+//5 pelin peräkkäinen pelaaminen
+function playGame(){
+
+for (let i = 1; i < 5; i++) {
+    playRound(getHumanChoice(),getComputerChoice()); }
+    
+};
+
+playGame();
+
+//tuloksen näyttäminen
+if (computerScore > humanScore){
+    console.log("Hävisit pelin!", computerScore,"-", humanScore)
 }
-
-playRound(getHumanChoice(), getComputerChoice())
+else if (computerScore < humanScore) {
+    console.log("Voitit pelin!", humanScore,"-" ,computerScore)
+}
+else{
+    console.log("Tasapeli!")
+};
