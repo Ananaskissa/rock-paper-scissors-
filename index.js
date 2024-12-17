@@ -4,6 +4,10 @@ let computerScore = 0;
 let roundsPlayed = 0;
 let gameOver = false;
 
+const resultContainer = document.createElement("div");
+resultContainer.style.marginTop = "40px";
+document.body.appendChild(resultContainer);
+
 function getHumanChoice(){
     
 const buttons = document.querySelectorAll("button");
@@ -41,44 +45,60 @@ function getComputerChoice() {
 
 //kierroksen pelaaminen
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice)
+ {  let resultText = "";
     if (humanChoice === computerChoice) {
-        h3.textContent = "Draw!";
+        resultText = `Draw! ${humanChoice} - ${computerChoice}`;
     } else if (
         (humanChoice === "rock" && computerChoice === "paper") ||
         (humanChoice === "scissors" && computerChoice === "rock") ||
         (humanChoice === "paper" && computerChoice === "scissors")
     ) {
-        h3.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
+        resultText = `You lose! ${computerChoice} beats ${humanChoice}`;
         computerScore++;
     } else {
-        h3.textContent = `You won! ${humanChoice} beats ${computerChoice}`;
+        resultText = `You won! ${humanChoice} beats ${computerChoice}`;
         humanScore++; 
     }
+
+    
+
+    const resultRow = document.createElement("p");
+    resultRow.textContent = resultText;
+    resultRow.style.margin = "5px 0";
+    resultRow.style.color = "#f76b8a";
+    resultRow.style.display = "flex";
+    resultRow.style.justifyContent = "center";
+    resultContainer.appendChild(resultRow);
+
+
+
 
     console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
 }
 
 
+
+
 const div = document.createElement("div");
 document.body.appendChild(div);
 
-const h3 = document.createElement("h3");
-h3.style.display = "flex";
-h3.style.justifyContent = "center";
-h3.style.color = "tomato";
-div.appendChild(h3);
+const h2 = document.createElement("h2");
+h2.style.display = "flex";
+h2.style.justifyContent = "center";
+h2.style.color = "tomato";
+div.appendChild(h2);
 
 function showResult() {
     if (humanScore > computerScore) {
-        h3.textContent = `YOU WON THE GAME! Final Score: ${humanScore} - ${computerScore}`;
+        h2.textContent = `YOU WON THE GAME! Final Score: ${humanScore} - ${computerScore}`;
     } else if (humanScore < computerScore) {
-        h3.textContent = `YOU LOST THE GAME! Final Score: ${humanScore} - ${computerScore}`;
+        h2.textContent = `YOU LOST THE GAME! Final Score: ${humanScore} - ${computerScore}`;
     } else {
-        h3.textContent = `IT'S A DRAW! Final Score: ${humanScore} - ${computerScore}`;
+        h2.textContent = `IT'S A DRAW! Final Score: ${humanScore} - ${computerScore}`;
     }
 
-    gameOver = true; i
+    gameOver = true; 
 }
 
 
