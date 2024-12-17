@@ -1,26 +1,27 @@
 let Choice;
 
 function getHumanChoice(){
+    
 
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-    
-    
     button.addEventListener("click",() => {
-        if (button.id == "rock") {
-            Choice = "rock"
-            console.log(Choice); }
-        else if (button.id == "paper") {
-            Choice = "paper"
-            console.log(Choice); }
-        else if (button.id == "scissors") {
-            Choice = "scissors"
-            console.log(Choice); }
-    });
+            if (button.id == "rock") {
+                Choice = "rock";
+         }
+            else if (button.id == "paper") {
+                Choice = "paper";
+        }
+            else if (button.id == "scissors") {
+                Choice = "scissors";
+        }
+            console.log(Choice)
+            playGame(Choice);
+            });
 });
-            return Choice
 }
+
 
 
 function getComputerChoice() {
@@ -74,18 +75,10 @@ for (let i = 1; i < 5; i++) {
 
 playGame();
 
-//tuloksen näyttäminen
-if (computerScore > humanScore){
-    console.log("Hävisit pelin!", computerScore,"-", humanScore)
-}
-else if (computerScore < humanScore) {
-    console.log("Voitit pelin!", humanScore,"-" ,computerScore)
-}
-else{
-    console.log("Tasapeli!")
-};
 
-const div = document.createElement("div")
+
+
+const div = document.createElement("div");
 document.body.appendChild(div);
 
 const h3 = document.createElement("h3");
@@ -94,7 +87,7 @@ h3.style.justifyContent = "center";
 h3.style.color = "tomato";
 div.appendChild(h3);
 
-
+function showResult() {}
 if (computerScore > humanScore){
     h3.textContent = "Hävisit pelin!", computerScore,"-", humanScore;
 }
@@ -104,3 +97,10 @@ else if (computerScore < humanScore) {
 else{
     h3.textContent = "Tasapeli!"
 };
+
+function playGame(humanSelection) {
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    showResult(); }
+
+getHumanChoice();
