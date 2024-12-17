@@ -1,4 +1,27 @@
-//koneen valinta
+let Choice;
+
+function getHumanChoice(){
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    
+    
+    button.addEventListener("click",() => {
+        if (button.id == "rock") {
+            Choice = "rock"
+            console.log(Choice); }
+        else if (button.id == "paper") {
+            Choice = "paper"
+            console.log(Choice); }
+        else if (button.id == "scissors") {
+            Choice = "scissors"
+            console.log(Choice); }
+    });
+});
+            return Choice
+}
+
 
 function getComputerChoice() {
     let options = ["rock", "paper", "scissors"]
@@ -7,17 +30,13 @@ function getComputerChoice() {
     return value
     
 }
-//pelaajan valinta
-
-function getHumanChoice(){
-    //let Choice = prompt("Choose rock, paper or scissors");
-    Choice = Choice.toLowerCase();
-        return Choice
-}
-
 
 let humanScore = 0
 let computerScore = 0
+
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
 
 //kierroksen pelaaminen
@@ -42,14 +61,14 @@ function playRound(humanChoice, computerChoice){
 
 };
 
-playRound(getHumanChoice(), getComputerChoice());
+playRound(humanSelection, computerSelection);
 
 
 //5 pelin peräkkäinen pelaaminen
 function playGame(){
 
 for (let i = 1; i < 5; i++) {
-    playRound(getHumanChoice(),getComputerChoice()); }
+    playRound(humanSelection,computerSelection); }
     
 };
 
@@ -66,4 +85,22 @@ else{
     console.log("Tasapeli!")
 };
 
-div.textContent = "Hello World!";
+const div = document.createElement("div")
+document.body.appendChild(div);
+
+const h3 = document.createElement("h3");
+h3.style.display = "flex";
+h3.style.justifyContent = "center";
+h3.style.color = "tomato";
+div.appendChild(h3);
+
+
+if (computerScore > humanScore){
+    h3.textContent = "Hävisit pelin!", computerScore,"-", humanScore;
+}
+else if (computerScore < humanScore) {
+    h3.textContent = "Voitit pelin!", humanScore,"-" ,computerScore;
+}
+else{
+    h3.textContent = "Tasapeli!"
+};
