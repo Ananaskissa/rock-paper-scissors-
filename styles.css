@@ -1,0 +1,58 @@
+* { background-color: bisque;
+
+}
+
+.gameboard {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+
+}
+
+button {
+    border: 2px tomato solid;
+    border-radius: 0.4rem;
+    height: 3rem;
+    width: 7rem;
+    box-shadow: 2px 2px 2px 1px pink;
+    text-align: center;
+    font-size: 1rem;
+    transition-duration: 0.4s;
+    color:tomato;
+    
+}
+
+button:hover{
+background-color: pink;
+transform:scale(1.2)
+
+}
+
+h1 {
+display: flex;
+justify-content: center;
+padding-bottom: 2rem;
+font-size: 4rem;
+font-weight: 2;
+color: tomato;
+
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 2;
+    color: tomato;
+    
+    }
+
+
+.fontdiner-swanky-regular {
+    font-family: "Fontdiner Swanky", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  

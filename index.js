@@ -10,7 +10,7 @@ function getComputerChoice() {
 //pelaajan valinta
 
 function getHumanChoice(){
-    let Choice = prompt("Choose rock, paper or scissors");
+    //let Choice = prompt("Choose rock, paper or scissors");
     Choice = Choice.toLowerCase();
         return Choice
 }
@@ -65,3 +65,5 @@ else if (computerScore < humanScore) {
 else{
     console.log("Tasapeli!")
 };
+
+div.textContent = "Hello World!";
